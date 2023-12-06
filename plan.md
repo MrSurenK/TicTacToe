@@ -7,9 +7,9 @@
 
 2. Turns
 
-   - [ ] Import scanner class
-   - [ ] Request Player to start game
-   - [ ] Randomise who makes the first move. Player or AI
+   - [x] Import scanner class
+   - [ ] Request Player to start game by making the first move
+   - [ ] Allow computer to make the next move with a timer
    - [ ] If a selected spot if selected again. Reject the move and request player to make a move again
    - [ ] Set a timer of 30 sec for AI to make move (Print out AI is thinking during that time)
 

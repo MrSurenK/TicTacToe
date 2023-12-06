@@ -13,7 +13,7 @@
    - [ ] If a selected spot if selected again. Reject the move and request player to make a move again
    - [ ] Set a timer of 30 sec for AI to make move (Print out AI is thinking during that time)
 
-3. Game Rules
+3. Game Logic
 
    - [ ] Three diagonal or verticle `x` or `o` will be declared winner
    - [ ] If no winner or loser print out a draw
@@ -22,6 +22,6 @@
      - If `n`: end game
 
 4. UI
-   - [ ] Welcome screen on startup
+   - [x] Welcome screen on startup
    - [ ] Player turn prompts
    - [ ] Winner && Loser Annoucement (You Win! / Game Over : ( )

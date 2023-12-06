@@ -35,13 +35,9 @@ public class TicTacToe {
         System.out.println("888   888888     888   .d888888888     888   888  88888888888"); 
         System.out.println("Y88b. 888Y88b.   Y88b. 888  888Y88b.   Y88b. Y88..88PY8b.   ");  
         System.out.println("Y888888 \"Y8888P \"Y888\"Y888888 \"Y8888P \"Y888 \"Y88P\"  \"Y8888\"\n");  
-        System.out.println("To start please select a box!\n");
+        
 
     }
-
-   
-
-
 
 
     public static void main(String[] args) {
@@ -50,12 +46,19 @@ public class TicTacToe {
         gameTitle();
         printBoard();
 
-        
+        // Request for player input 
+        Scanner startGameRow = new Scanner(System.in);
+        System.out.println("To start please select a row!");
+        int row = startGameRow.nextInt();
+
+        Scanner startGameColumn = new Scanner(System.in);
+        System.out.println("To start please select a column!");
+        int column = startGameColumn.nextInt();
 
 
-
-                                                            
-
+        System.out.print(row + ",");
+        System.out.print(column);
+                                                
        
     }
 

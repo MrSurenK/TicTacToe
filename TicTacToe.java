@@ -16,7 +16,7 @@ public class TicTacToe {
     }
 
     // Gameboard static method 
-   private static void printBoard(int choice){
+   private static void printBoard(int choice, int cpu_choice){
 
         char[][] gameBoard = {{' ','|',' ','|',' '},
                               {'-','+','-','+','-'},
@@ -77,6 +77,57 @@ public class TicTacToe {
         }
 
 
+        switch(cpu_choice){
+            case 1: 
+            if (gameBoard[0][0] != 'X'){
+                gameBoard[0][0] = 'O';
+            };
+            break;
+            case 2: 
+            if (gameBoard[0][2] != 'X'){
+                gameBoard[0][2] = 'O';
+            };
+            break;
+            case 3: 
+            if (gameBoard[0][4] != 'X'){
+                gameBoard[0][4] = 'O';
+            };
+            break;
+            case 4: 
+            if (gameBoard[2][0] != 'X'){
+                gameBoard[2][0] = 'O';
+            };
+            break;
+            case 5: 
+            if (gameBoard[2][2] != 'X'){
+                gameBoard[2][2] = 'O';
+            };
+            break;
+            case 6: 
+            if (gameBoard[2][4] != 'X'){
+                gameBoard[2][4] = 'O';
+            };
+            break;
+            case 7: 
+            if (gameBoard[4][0] != 'X'){
+                gameBoard[4][0] = 'O';
+            };
+            break;
+            case 8: 
+            if (gameBoard[4][2] != 'X'){
+                gameBoard[4][2] = 'O';
+            };
+            break;
+            case 9: 
+            if (gameBoard[4][4] != 'X'){
+                gameBoard[4][4] = 'O';
+            };
+            break;
+            default:
+                 break;
+        }
+
+
         for (char[] row : gameBoard) {
             for (char col : row){
                 System.out.print(col);
@@ -119,12 +170,11 @@ public class TicTacToe {
 
 
     // Method for computer turn 
-    private int computer(){
+    private static int computer(){
+        System.out.println("Computer Turn...");
         int spot = (int)Math.floor(Math.random() * 9) + 1; // This will generate a random number from 1 to 9.
         return spot; 
     }
-
-
 
     public static void main(String[] args) {
 
@@ -133,26 +183,15 @@ public class TicTacToe {
         
         // Create game object 
         TicTacToe game = new TicTacToe();
+
         int choice = prompt();
-        printBoard(choice);
+        // printBoard(choice);
 
-        
+        int computerChoice = computer();
+        printBoard(choice, computerChoice);
 
-        
-
-
-
-        
-
-
-                                                
-       
+                                       
     }
 
-
-
-
-
-
-
 }
+

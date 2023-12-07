@@ -1,6 +1,6 @@
 ## Tic Tac Toe Command Line Game
 
-1. Initialise Game Board
+1. Create Game Board
 
    - [x] Using arrays print out a game board.
    - [x] Create gameboard with a static method to make it reusable
@@ -20,8 +20,15 @@
    - [ ] When game ends ask player if want to play again.
      - If `y`: Refresh gameboard
      - If `n`: end game
+   - [ ] Spots are numbered from 1 to 9. Link each int to the appropriate spot in 2D array
 
 4. UI
+
    - [x] Welcome screen on startup
    - [ ] Player turn prompts
    - [ ] Winner && Loser Annoucement (You Win! / Game Over : ( )
+
+5. Initialise Game object
+   - [x] Create 3 states, start game, continue game, end game state
+   - [x] Default state, start game == true.
+   - [ ] When state is true run methods and game logic

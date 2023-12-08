@@ -5,14 +5,12 @@ import java.util.Random;
 public class TicTacToe {
     // States 
     boolean startGame;
-    boolean continueGame; 
-    boolean endGame;
+    boolean continueGame; // When game over asks player if want to continue
 
     // constructor to initialise game object 
     public TicTacToe(){
         this.startGame = true;
-        this.continueGame = true;
-        this.endGame = false; 
+        this.continueGame = false; 
     }
 
 
@@ -86,15 +84,10 @@ public class TicTacToe {
     }
 
     // Method for computer turn 
-    private static void printComputerChoice(char[][]gameBoard){
-
-        
-
-       
-        
-        
+    private static void printComputerChoice(char[][]gameBoard){      
         System.out.println("Computer Turn...");
         
+        // Simulate computer thinking and making a choice 
         try {
             Thread.sleep(3000);
 
@@ -204,6 +197,62 @@ public class TicTacToe {
 
     }
 
+
+    // Winner annoucement 
+    private void winner(){
+        System.out.println("Congratulation! You Won!");
+    }
+
+    // Loser announcement 
+    private void loser(){
+        System.out.println("Too bad! You lost");
+    }
+
+
+    // Check for winner/loser/tie 
+    private void checkStatus(char[][] gameBoard){
+
+        // Using for loop check for player or computer winning conditions across the board 
+        for (int i =0; i < gameBoard.length; i+=2 ){
+            if (gameBoard[i][0] == 'X' && gameBoard[i][1] == 'X' && gameBoard[i][2] == 'X'){
+                winner(); // player won 
+                } else if (gameBoard[i][0] == 'O' && gameBoard[i][1] == 'O' && gameBoard[i][2] == 'O'){
+                    loser(); // player loss 
+                }
+          }
+
+        // Using for loop check for player or computer winning/losing condition vertically
+        for (int i=0; i <gameBoard[i].length; i+=2){
+             if (gameBoard[0][i] == 'X' && gameBoard[2][i] == 'X' && gameBoard[4][i] == 'X'){
+                winner();
+            } else if (gameBoard[0][i] == 'O' && gameBoard[2][i] == 'O' && gameBoard[4][i] == 'O'){
+                loser();
+            }
+        }
+
+        //Manually check for diagonal win conditions using if else statements 
+        if (gameBoard[0][0] == 'X' && gameBoard[2][2] == 'X' && gameBoard[4][4] == 'X'){
+            winner();
+        } else if (gameBoard[0][0] == 'O' && gameBoard[2][2] == 'O' && gameBoard[4][4] == 'O'){
+            loser();
+        } else if (gameBoard[0][4] == 'X' && gameBoard[2][2] == 'X' && gameBoard[4][0] == 'X'){
+            winner();
+        }else if(gameBoard[0][4] == 'O' && gameBoard[2][2] == 'O' && gameBoard[4][0] == 'O'){
+            loser();
+        }
+
+        // draw conditoon -- No more space on the board and all the above conditions failed! 
+        for(int i = 0; i < gameBoard.length; i += 2){
+            for(int j = 0 ; j < gameBoard[i].length; j++){
+                if (gameBoard[i][j] != ' '){
+                    System.out.println("Draw!");
+                }
+            }
+        }
+
+    }
+
+
     public static void main(String[] args) {
 
         // Launch game 
@@ -232,6 +281,7 @@ public class TicTacToe {
 
                                        
     }
+
 
 }
 

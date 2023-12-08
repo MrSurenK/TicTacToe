@@ -88,7 +88,9 @@ public class TicTacToe {
     // Method for computer turn 
     private static void printComputerChoice(char[][]gameBoard){
 
-        int cpu_choice = (int)Math.floor(Math.random() * 9) + 1; // This will generate a random number from 1 to 9.
+        
+
+       
         
         
         System.out.println("Computer Turn...");
@@ -102,55 +104,73 @@ public class TicTacToe {
 
         }
 
-        switch(cpu_choice){
-            case 1: 
-            if (gameBoard[0][0] != 'X'){
-                gameBoard[0][0] = 'O';
-            };
-            break;
-            case 2: 
-            if (gameBoard[0][2] != 'X'){
-                gameBoard[0][2] = 'O';
-            };
-            break;
-            case 3: 
-            if (gameBoard[0][4] != 'X'){
-                gameBoard[0][4] = 'O';
-            };
-            break;
-            case 4: 
-            if (gameBoard[2][0] != 'X'){
-                gameBoard[2][0] = 'O';
-            };
-            break;
-            case 5: 
-            if (gameBoard[2][2] != 'X'){
-                gameBoard[2][2] = 'O';
-            };
-            break;
-            case 6: 
-            if (gameBoard[2][4] != 'X'){
-                gameBoard[2][4] = 'O';
-            };
-            break;
-            case 7: 
-            if (gameBoard[4][0] != 'X'){
-                gameBoard[4][0] = 'O';
-            };
-            break;
-            case 8: 
-            if (gameBoard[4][2] != 'X'){
-                gameBoard[4][2] = 'O';
-            };
-            break;
-            case 9: 
-            if (gameBoard[4][4] != 'X'){
-                gameBoard[4][4] = 'O';
-            };
-            break;
-            default:
-                 break;
-        }
+        // To keep while loop running until valid box selected 
+        boolean turn = true; 
+        
+        while(turn){
+            int cpu_choice = (int)Math.floor(Math.random() * 9) + 1; // This will generate a random number from 1 to 9.
+
+            switch(cpu_choice){
+                case 1: 
+                if (gameBoard[0][0] != 'X'){
+                    gameBoard[0][0] = 'O';
+                    turn = false;
+
+                };
+                break;
+                case 2: 
+                if (gameBoard[0][2] != 'X'){
+                    gameBoard[0][2] = 'O';
+                    turn = false;
+                };
+                break;
+                case 3: 
+                if (gameBoard[0][4] != 'X'){
+                    gameBoard[0][4] = 'O';
+                    turn = false;
+                };
+                break;
+                case 4: 
+                if (gameBoard[2][0] != 'X'){
+                    gameBoard[2][0] = 'O';
+                    turn = false;
+                };
+                break;
+                case 5: 
+                if (gameBoard[2][2] != 'X'){
+                    gameBoard[2][2] = 'O';
+                    turn = false;
+                };
+                break;
+                case 6: 
+                if (gameBoard[2][4] != 'X'){
+                    gameBoard[2][4] = 'O';
+                    turn = false;
+                };
+                break;
+                case 7: 
+                if (gameBoard[4][0] != 'X'){
+                    gameBoard[4][0] = 'O';
+                    turn = false;
+                };
+                break;
+                case 8: 
+                if (gameBoard[4][2] != 'X'){
+                    gameBoard[4][2] = 'O';
+                    turn = false;
+                };
+                break;
+                case 9: 
+                if (gameBoard[4][4] != 'X'){
+                    gameBoard[4][4] = 'O';
+                    turn = false;
+                };
+                break;
+                default:
+                    break;
+            }
+
+    }
 
         printBoard(gameBoard);
 
@@ -209,19 +229,6 @@ public class TicTacToe {
         game.printPlayerChoice(gameBoard, choice);
 
         printComputerChoice(gameBoard);
-
-
-
-        
-    
-
-
-
-        
-
-    
-    
-        
 
                                        
     }

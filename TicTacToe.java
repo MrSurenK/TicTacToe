@@ -77,6 +77,8 @@ public class TicTacToe {
         }
 
 
+
+
         switch(cpu_choice){
             case 1: 
             if (gameBoard[0][0] != 'X'){
@@ -172,6 +174,16 @@ public class TicTacToe {
     // Method for computer turn 
     private static int computer(){
         System.out.println("Computer Turn...");
+        
+        try {
+              Thread.sleep(10000);
+
+        } 
+        catch(InterruptedException e) {
+            System.out.println(e);
+
+        }
+      
         int spot = (int)Math.floor(Math.random() * 9) + 1; // This will generate a random number from 1 to 9.
         return spot; 
     }
@@ -188,6 +200,7 @@ public class TicTacToe {
         // printBoard(choice);
 
         int computerChoice = computer();
+
         printBoard(choice, computerChoice);
 
                                        

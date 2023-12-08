@@ -6,7 +6,7 @@ public class TicTacToe {
     // States 
     boolean startGame;
     boolean continueGame; 
-    boolean endGame; 
+    boolean endGame;
 
     // constructor to initialise game object 
     public TicTacToe(){
@@ -15,16 +15,22 @@ public class TicTacToe {
         this.endGame = false; 
     }
 
-    // Gameboard static method 
-   private static void printBoard(int choice, int cpu_choice){
 
-        char[][] gameBoard = {{' ','|',' ','|',' '},
-                              {'-','+','-','+','-'},
-                              {' ','|',' ','|',' '},
-                              {'-','+','-','+','-'},
-                              {' ','|',' ','|',' '},
-                            };
+    //gameboard 
+    private static void printBoard(char[][] gameBoard){
+        
+        for (char[] row : gameBoard) {
+            for (char col : row){
+                System.out.print(col);
+            }
+            System.out.println("");
 
+        }
+
+    }
+
+    // Player choice gameboard 
+   private void printPlayerChoice(char[][] gameBoard, int choice){      
         // Player choice, "X" the box that player chose
         switch(choice){
             case 1: 
@@ -76,8 +82,25 @@ public class TicTacToe {
                 System.out.println("Ops!Looks like that is an invalid choice. Please try again!"); // Think of how to handle this globally in runtime
         }
 
+        printBoard(gameBoard);
+    }
 
+    // Method for computer turn 
+    private static void printComputerChoice(char[][]gameBoard){
 
+        int cpu_choice = (int)Math.floor(Math.random() * 9) + 1; // This will generate a random number from 1 to 9.
+        
+        
+        System.out.println("Computer Turn...");
+        
+        try {
+            Thread.sleep(3000);
+
+        } 
+        catch(InterruptedException e) {
+            System.out.println(e);
+
+        }
 
         switch(cpu_choice){
             case 1: 
@@ -129,16 +152,7 @@ public class TicTacToe {
                  break;
         }
 
-
-        for (char[] row : gameBoard) {
-            for (char col : row){
-                System.out.print(col);
-            }
-            System.out.println("");
-
-        }
-
-
+        printBoard(gameBoard);
 
     }
 
@@ -161,31 +175,13 @@ public class TicTacToe {
     // Method to prompt user input on user turn 
     private static int prompt(){
 
-                // Request for player input 
+        // Request for player input 
         Scanner pickSpot = new Scanner(System.in);
         System.out.println("Where would you like to cross?");
         int position = pickSpot.nextInt();
 
         return position;
 
-    }
-
-
-    // Method for computer turn 
-    private static int computer(){
-        System.out.println("Computer Turn...");
-        
-        try {
-              Thread.sleep(10000);
-
-        } 
-        catch(InterruptedException e) {
-            System.out.println(e);
-
-        }
-      
-        int spot = (int)Math.floor(Math.random() * 9) + 1; // This will generate a random number from 1 to 9.
-        return spot; 
     }
 
     public static void main(String[] args) {
@@ -196,12 +192,36 @@ public class TicTacToe {
         // Create game object 
         TicTacToe game = new TicTacToe();
 
+
+        // Initialise gameboard as global variable 
+        char[][] gameBoard = {{' ','|',' ','|',' '},
+                              {'-','+','-','+','-'},
+                              {' ','|',' ','|',' '},
+                              {'-','+','-','+','-'},
+                              {' ','|',' ','|',' '},
+                            };
+
+        printBoard(gameBoard);                   
+
+        // Request player choice 
         int choice = prompt();
-        // printBoard(choice);
 
-        int computerChoice = computer();
+        game.printPlayerChoice(gameBoard, choice);
 
-        printBoard(choice, computerChoice);
+        printComputerChoice(gameBoard);
+
+
+
+        
+    
+
+
+
+        
+
+    
+    
+        
 
                                        
     }

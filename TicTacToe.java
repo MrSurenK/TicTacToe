@@ -4,12 +4,12 @@ import java.util.Random;
 
 public class TicTacToe {
     // States 
-    boolean startGame;
-    boolean continueGame; // When game over asks player if want to continue
+    public static boolean startGame;
+    public boolean continueGame; // When game over asks player if want to continue
 
     // constructor to initialise game object 
     public TicTacToe(){
-        this.startGame = true;
+        startGame = true;
         this.continueGame = false; 
     }
 
@@ -28,60 +28,79 @@ public class TicTacToe {
     }
 
     // Player choice gameboard 
-   private void printPlayerChoice(char[][] gameBoard, int choice){      
+   private void printPlayerChoice(char[][] gameBoard){
+
+
+        // Control variable to ensure that a valid square is selected 
+        boolean cont = true; 
+
+        // WHile loop ensures that the correct square is selected
+        while (cont){
+            // Player choice prompt 
+            int choice = prompt();
         // Player choice, "X" the box that player chose
-        switch(choice){
-            case 1: 
-            if (gameBoard[0][0] != 'O'){
-                gameBoard[0][0] = 'X';
-            };
-            break;
-            case 2: 
-            if (gameBoard[0][2] != 'O'){
-                gameBoard[0][2] = 'X';
-            };
-            break;
-            case 3: 
-            if (gameBoard[0][4] != 'O'){
-                gameBoard[0][4] = 'X';
-            };
-            break;
-            case 4: 
-            if (gameBoard[2][0] != 'O'){
-                gameBoard[2][0] = 'X';
-            };
-            break;
-            case 5: 
-            if (gameBoard[2][2] != 'O'){
-                gameBoard[2][2] = 'X';
-            };
-            break;
-            case 6: 
-            if (gameBoard[2][4] != 'O'){
-                gameBoard[2][4] = 'X';
-            };
-            break;
-            case 7: 
-            if (gameBoard[4][0] != 'O'){
-                gameBoard[4][0] = 'X';
-            };
-            break;
-            case 8: 
-            if (gameBoard[4][2] != 'O'){
-                gameBoard[4][2] = 'X';
-            };
-            break;
-            case 9: 
-            if (gameBoard[4][4] != 'O'){
-                gameBoard[4][4] = 'X';
-            };
-            break;
-            default:
-                System.out.println("Ops!Looks like that is an invalid choice. Please try again!"); // Think of how to handle this globally in runtime
+            switch(choice){
+                case 1: 
+                if (gameBoard[0][0] != 'O' && gameBoard[0][0] != 'X'){
+                    gameBoard[0][0] = 'X';
+                    cont = false;
+                };
+                break;
+                case 2: 
+                if (gameBoard[0][2] != 'O' && gameBoard[0][2] != 'X'){
+                    gameBoard[0][2] = 'X';
+                    cont = false; 
+                };
+                break;
+                case 3: 
+                if (gameBoard[0][4] != 'O' && gameBoard[0][4] != 'X'){
+                    gameBoard[0][4] = 'X';
+                    cont = false; 
+                };
+                break;
+                case 4: 
+                if (gameBoard[2][0] != 'O' && gameBoard[2][0] != 'X'){
+                    gameBoard[2][0] = 'X';
+                    cont = false; 
+                };
+                break;
+                case 5: 
+                if (gameBoard[2][2] != 'O' && gameBoard[2][2] != 'X'){
+                    gameBoard[2][2] = 'X';
+                    cont = false; 
+                };
+                break;
+                case 6: 
+                if (gameBoard[2][4] != 'O' && gameBoard[2][4] != 'X'){
+                    gameBoard[2][4] = 'X';
+                    cont = false; 
+                };
+                break;
+                case 7: 
+                if (gameBoard[4][0] != 'O' && gameBoard[4][0] != 'X'){
+                    gameBoard[4][0] = 'X';
+                    cont = false; 
+                };
+                break;
+                case 8: 
+                if (gameBoard[4][2] != 'O' && gameBoard[4][2] != 'X'){
+                    gameBoard[4][2] = 'X';
+                    cont = false; 
+                };
+                break;
+                case 9: 
+                if (gameBoard[4][4] != 'O' && gameBoard[4][4] != 'X'){
+                    gameBoard[4][4] = 'X';
+                    cont = false; 
+                };
+                break;
+                default:
+                    break;
+            }
         }
 
-        printBoard(gameBoard);
-    }
+            printBoard(gameBoard);
+        }
 
     // Method for computer turn 
     private static void printComputerChoice(char[][]gameBoard){      
@@ -201,11 +220,13 @@ public class TicTacToe {
     // Winner annoucement 
     private void winner(){
         System.out.println("Congratulation! You Won!");
+        startGame = false;
     }
 
     // Loser announcement 
     private void loser(){
         System.out.println("Too bad! You lost");
+        startGame = false;
     }
 
 
@@ -214,15 +235,15 @@ public class TicTacToe {
 
         // Using for loop check for player or computer winning conditions across the board 
         for (int i =0; i < gameBoard.length; i+=2 ){
-            if (gameBoard[i][0] == 'X' && gameBoard[i][1] == 'X' && gameBoard[i][2] == 'X'){
+            if (gameBoard[i][0] == 'X' && gameBoard[i][2] == 'X' && gameBoard[i][4] == 'X'){
                 winner(); // player won 
-                } else if (gameBoard[i][0] == 'O' && gameBoard[i][1] == 'O' && gameBoard[i][2] == 'O'){
+                } else if (gameBoard[i][0] == 'O' && gameBoard[i][2] == 'O' && gameBoard[i][4] == 'O'){
                     loser(); // player loss 
                 }
           }
 
         // Using for loop check for player or computer winning/losing condition vertically
-        for (int i=0; i <gameBoard[i].length; i+=2){
+        for (int i=0; i <gameBoard[0].length; i+= 2){
              if (gameBoard[0][i] == 'X' && gameBoard[2][i] == 'X' && gameBoard[4][i] == 'X'){
                 winner();
             } else if (gameBoard[0][i] == 'O' && gameBoard[2][i] == 'O' && gameBoard[4][i] == 'O'){
@@ -241,16 +262,10 @@ public class TicTacToe {
             loser();
         }
 
-        // draw conditoon -- No more space on the board and all the above conditions failed! 
-        for(int i = 0; i < gameBoard.length; i += 2){
-            for(int j = 0 ; j < gameBoard[i].length; j++){
-                if (gameBoard[i][j] != ' '){
-                    System.out.println("Draw!");
-                }
-            }
-        }
-
     }
+
+
+    
 
 
     public static void main(String[] args) {
@@ -270,18 +285,33 @@ public class TicTacToe {
                               {' ','|',' ','|',' '},
                             };
 
-        printBoard(gameBoard);                   
+        printBoard(gameBoard); 
 
-        // Request player choice 
-        int choice = prompt();
+                       
+        
+        
+        //While loop to run game logic and player turns 
 
-        game.printPlayerChoice(gameBoard, choice);
+        while (startGame){
 
-        printComputerChoice(gameBoard);
+    
+             
 
-                                       
+            game.printPlayerChoice(gameBoard);
+            game.checkStatus(gameBoard);
+            if (startGame == false){
+                break;
+            } 
+            printComputerChoice(gameBoard);
+            game.checkStatus(gameBoard);
+
+
+        }        
+        
     }
 
 
 }
+
+
 

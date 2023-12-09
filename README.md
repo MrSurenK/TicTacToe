@@ -4,7 +4,7 @@ A simple interactive command line tic tac toe game built using java
 
 ### How to play?
 
-1. To execute the jar file run the following command in the directory where you have saved the repo <br>
+1. To execute the jar file run the following command in the directory where you have saved the repo. <br>
    `java -jar MyApp.jar`
 
 2. Each empty grid is numbered from 1 to 9 going across and down.

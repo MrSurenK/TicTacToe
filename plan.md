@@ -16,10 +16,7 @@
 3. Game Logic
 
    - [x] Three diagonal or verticle `x` or `o` will be declared winner
-   - [ ] If no winner or loser print out a draw
-   - [ ] When game ends ask player if want to play again.
-     - If `y`: Refresh gameboard
-     - If `n`: end game
+   - [x] If no winner or loser print out a draw
    - [x] Spots are numbered from 1 to 9. Link each int to the appropriate spot in 2D array
 
 4. UI
@@ -31,4 +28,4 @@
 5. Initialise Game object
    - [x] Create 3 states, start game, continue game, end game state
    - [x] Default state, start game == true.
-   - [ ] When state is true run methods and game logic
+   - [x] When state is true run methods and game logic

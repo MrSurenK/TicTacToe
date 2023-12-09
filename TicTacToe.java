@@ -5,12 +5,12 @@ import java.util.Random;
 public class TicTacToe {
     // States 
     public static boolean startGame;
-    public boolean continueGame; // When game over asks player if want to continue
+    public int playerTurns; // Keeps track of number of turns player uses 
 
     // constructor to initialise game object 
     public TicTacToe(){
         startGame = true;
-        this.continueGame = false; 
+        this.playerTurns = 0; 
     }
 
 
@@ -30,7 +30,9 @@ public class TicTacToe {
     // Player choice gameboard 
    private void printPlayerChoice(char[][] gameBoard){
 
-
+        //track number of player turns 
+        this.playerTurns++; 
+        
         // Control variable to ensure that a valid square is selected 
         boolean cont = true; 
 
@@ -149,49 +151,49 @@ public class TicTacToe {
                 };
                 break;
                 case 2: 
-                if (gameBoard[0][2] != 'X' && gameBoard[0][0] != 'O'){
+                if (gameBoard[0][2] != 'X' && gameBoard[0][2] != 'O'){
                     gameBoard[0][2] = 'O';
                     turn = false;
                 };
                 break;
                 case 3: 
-                if (gameBoard[0][4] != 'X' && gameBoard[0][0] != 'O'){
+                if (gameBoard[0][4] != 'X' && gameBoard[0][4] != 'O'){
                     gameBoard[0][4] = 'O';
                     turn = false;
                 };
                 break;
                 case 4: 
-                if (gameBoard[2][0] != 'X' && gameBoard[0][0] != 'O'){
+                if (gameBoard[2][0] != 'X' && gameBoard[2][0] != 'O'){
                     gameBoard[2][0] = 'O';
                     turn = false;
                 };
                 break;
                 case 5: 
-                if (gameBoard[2][2] != 'X' && gameBoard[0][0] != 'O'){
+                if (gameBoard[2][2] != 'X' && gameBoard[2][2] != 'O'){
                     gameBoard[2][2] = 'O';
                     turn = false;
                 };
                 break;
                 case 6: 
-                if (gameBoard[2][4] != 'X' && gameBoard[0][0] != 'O'){
+                if (gameBoard[2][4] != 'X' && gameBoard[2][4] != 'O'){
                     gameBoard[2][4] = 'O';
                     turn = false;
                 };
                 break;
                 case 7: 
-                if (gameBoard[4][0] != 'X' && gameBoard[0][0] != 'O'){
+                if (gameBoard[4][0] != 'X' && gameBoard[4][0] != 'O'){
                     gameBoard[4][0] = 'O';
                     turn = false;
                 };
                 break;
                 case 8: 
-                if (gameBoard[4][2] != 'X' && gameBoard[0][0] != 'O'){
+                if (gameBoard[4][2] != 'X' && gameBoard[4][2] != 'O'){
                     gameBoard[4][2] = 'O';
                     turn = false;
                 };
                 break;
                 case 9: 
-                if (gameBoard[4][4] != 'X' && gameBoard[0][0] != 'O'){
+                if (gameBoard[4][4] != 'X' && gameBoard[4][4] != 'O'){
                     gameBoard[4][4] = 'O';
                     turn = false;
                 };
@@ -248,6 +250,7 @@ public class TicTacToe {
     }
 
 
+
     // Check for winner/loser/tie 
     private void checkStatus(char[][] gameBoard){
 
@@ -280,11 +283,12 @@ public class TicTacToe {
             loser();
         }
 
+        if (this.playerTurns > 5 ){
+            startGame = false; 
+            System.out.println("Its a draw!");
+        }
+
     }
-
-
-    
-
 
     public static void main(String[] args) {
 

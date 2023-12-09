@@ -117,13 +117,14 @@ public class TicTacToe {
                 default:
                     break;
             }
-        }
-
+        }   
+            System.out.println(" ");
             printBoard(gameBoard);
         }
 
     // Method for computer turn 
-    private static void printComputerChoice(char[][]gameBoard){      
+    private static void printComputerChoice(char[][]gameBoard){
+        System.out.println(" ");      
         System.out.println("Computer Turn...");
         
         // Simulate computer thinking and making a choice 
@@ -203,7 +204,7 @@ public class TicTacToe {
             }
 
     }
-
+        System.out.println(" ");
         printBoard(gameBoard);
 
     }
@@ -229,6 +230,7 @@ public class TicTacToe {
 
         // Request for player input 
         Scanner pickSpot = new Scanner(System.in);
+        System.out.println(" ");
         System.out.println("Where would you like to cross?");
         int position = pickSpot.nextInt();
 

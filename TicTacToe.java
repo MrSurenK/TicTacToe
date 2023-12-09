@@ -142,56 +142,56 @@ public class TicTacToe {
 
             switch(cpu_choice){
                 case 1: 
-                if (gameBoard[0][0] != 'X'){
+                if (gameBoard[0][0] != 'X' && gameBoard[0][0] != 'O'){
                     gameBoard[0][0] = 'O';
                     turn = false;
 
                 };
                 break;
                 case 2: 
-                if (gameBoard[0][2] != 'X'){
+                if (gameBoard[0][2] != 'X' && gameBoard[0][0] != 'O'){
                     gameBoard[0][2] = 'O';
                     turn = false;
                 };
                 break;
                 case 3: 
-                if (gameBoard[0][4] != 'X'){
+                if (gameBoard[0][4] != 'X' && gameBoard[0][0] != 'O'){
                     gameBoard[0][4] = 'O';
                     turn = false;
                 };
                 break;
                 case 4: 
-                if (gameBoard[2][0] != 'X'){
+                if (gameBoard[2][0] != 'X' && gameBoard[0][0] != 'O'){
                     gameBoard[2][0] = 'O';
                     turn = false;
                 };
                 break;
                 case 5: 
-                if (gameBoard[2][2] != 'X'){
+                if (gameBoard[2][2] != 'X' && gameBoard[0][0] != 'O'){
                     gameBoard[2][2] = 'O';
                     turn = false;
                 };
                 break;
                 case 6: 
-                if (gameBoard[2][4] != 'X'){
+                if (gameBoard[2][4] != 'X' && gameBoard[0][0] != 'O'){
                     gameBoard[2][4] = 'O';
                     turn = false;
                 };
                 break;
                 case 7: 
-                if (gameBoard[4][0] != 'X'){
+                if (gameBoard[4][0] != 'X' && gameBoard[0][0] != 'O'){
                     gameBoard[4][0] = 'O';
                     turn = false;
                 };
                 break;
                 case 8: 
-                if (gameBoard[4][2] != 'X'){
+                if (gameBoard[4][2] != 'X' && gameBoard[0][0] != 'O'){
                     gameBoard[4][2] = 'O';
                     turn = false;
                 };
                 break;
                 case 9: 
-                if (gameBoard[4][4] != 'X'){
+                if (gameBoard[4][4] != 'X' && gameBoard[0][0] != 'O'){
                     gameBoard[4][4] = 'O';
                     turn = false;
                 };

@@ -13,4 +13,4 @@ A simple interactive command line tic tac toe game built using java
 
 3. Pick the position of the numbered tile and wait for the computer to end its turn.
 
-4. Winner is the first to strike 3 consecutive tiles in a verticaly or horizontaly or diagonally accross the board.
+4. Winner is the first to strike 3 consecutive tiles verticaly/horizontaly/diagonally accross the board.
